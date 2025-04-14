@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>점수 출력하기</title>
+</head>
+
+<body>
+    <input type="number" placeholder="점수 입력" id="jumsu">
+    <button onclick="panjung()">합격 여부</button>
+    <hr>
+    <div>결과 : <span id="result">점수를 입력하세요</span></div>
+    <script>
+        function panjung() {
+            // type을 number로 지정하면 숫자에 해당하는 문자열을 입력받는다
+            const jumsu = document.getElementById('jumsu').value;
+            if (jumsu === '') {
+                alert('숫자를 입력하세요')
+                return false;
+            }
+            const resultSpan = document.getElementById('result');
+            if (jumsu >= 70)
+                resultSpan.textContent = "합격입니다";
+            else
+                resultSpan.textContent = "불합격입니다";
+        }
+    </script>
+</body>
+
+</html>

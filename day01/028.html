@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타입변환하기</title>
+</head>
+
+<body>
+    <script>
+        const a = 100;
+        // 타입을 언어가 변환 : 암시적 변환, 묵시적 변환
+        // 타입을 개발자가 변환 : 명시적 변환
+
+        const num = Number(a);
+        console.log(a);
+        console.log(num);
+
+        const b = 'hello';
+        // 자바라면 예외상황 -> NaN이라는 특수값을 만들어 놓았다
+        const num2 = Number(b);
+        console.log(num2);
+        if (isNaN(num2))
+            console.log('숫자만 입력가능합니다');
+        else
+            console, log(num2);
+    </script>
+</body>
+
+</html>

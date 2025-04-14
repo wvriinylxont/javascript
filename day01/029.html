@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="clickHandler()">제곱하기</button>
+    <script>
+        // 제곱해서 출력. 계산이 잘못된 경우 적절한 오류 메시지
+        function clickHandler() {
+            const input = prompt("제곱할 숫자를 입력해주세요");
+            const number = Number(input);
+            if (isNaN(Number))
+                alert('숫자만 입력가능 합니다');
+            const result = number * number;
+            alert("제곱결과:" + result);
+        }
+    </script>
+</body>
+
+</html>

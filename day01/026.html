@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제곱해서 출력하기 2</title>
+</head>
+
+<body>
+    <!-- 버튼을 클릭하면 숫자를 입력받아 출력하시오 -->
+    <button onclick="clickHandler()">출력하기</button>
+    <button onclick="squareHandler()">제곱하기</button>
+    <script>
+        function clickHandler() {
+            const num = prompt("숫자를 입력하세요");
+            alert(num);
+        }
+
+        function squareHandler() {
+            const num = prompt("숫자를 제곱합니다");
+            const result = num * num;
+            alert(result);
+        }
+    </script>
+</body>
+
+</html>

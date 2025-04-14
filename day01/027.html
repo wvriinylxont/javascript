@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not a Number</title>
+</head>
+
+<body>
+    <button onclick="clickHandler()">제곱하기</button>
+    <script>
+        function clickHandler() {
+            const value = prompt('제곱할 숫자 입력');
+            const result = value * value;
+            // NaN를 == 로 비교하면 무조건 false -> isNaN()으로 비교
+            if (isNaN(result)) {
+                alert('숫자를 입력하세요');
+            } else {
+                alert("제곱결과:" + result);
+            }
+        }
+    </script>
+</body>
+
+</html>

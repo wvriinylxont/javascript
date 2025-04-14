@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수 만들기</title>
+</head>
+
+<body>
+    <script>
+        // 자바스크립트 표준은 유럽표준기구(ECMA)에서 관리
+        // 초창기 자바스크립트 : 키워드없이 변수 생성
+        a = 10;
+        b = 20;
+        console.log(a + b);
+
+        // 키워드 없이 변수를 생성 -> 변수 생성과 변수의 값을 변경하는 구별이 안된다
+        x = 20;
+        console.log(a + x);
+
+        // 아래코드가 x의 값을 변경하면 상관없는데 ..
+        // 개발자가 x라는 변수를 만들었다는 사실을 잊어먹고, 새롭게 x를 만들어라 라는 의도였다면
+        // 기존의 20이라는 값이 사라지네 ??
+        x = 50;
+        console.log(a + x);
+    </script>
+</body>
+
+</html>

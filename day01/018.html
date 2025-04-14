@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>엄격모드</title>
+</head>
+
+<body>
+    <script>
+        // 문법을 엄격하게 지정. 대표적으로 키워드없이 변수생성 금지
+        // 첫번째 줄에 적는다
+        // node.js 환경에서는 기본 적용
+        'use strict'
+
+        let a = 10;
+        b = 20;
+        console.log(a + b);
+    </script>
+</body>
+
+</html>

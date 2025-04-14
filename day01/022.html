@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>산술 연산 2 : 내장객체</title>
+</head>
+
+<body>
+    <script>
+        // 자바스크립트에서 바로 사용할 수 있도록 탑재된 객체
+        // Date 내장 객체는 new한다
+        const now = new Date();
+        console.log(now.getFullYear());
+        // 날짜 바꾸는거
+        document.getElementById('demo').textContent = now.toDateString();
+
+        // Math는 static 내장 객체
+        console.log(Math.floor(3.54));
+        console.log(MAth.ceil(3.54));
+
+        // 자바의 wrapper 클래스
+        // int에 대해 Integer, double에 대해 Double, boolean에 대해 Boolean ..
+
+
+        // 자바스크립트도 마찬가지
+        // number -> Number, string -> String, boolean -> Boolean, object - Object
+    </script>
+</body>
+
+</html>

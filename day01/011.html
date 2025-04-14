@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트의 위치</title>
+    <script>
+        // html은 위에서부터 순서대로 실행
+        console.log(document.getElementById('demo'));   //null
+        document.getElementById('demo').textContent = '헤더에서 변경';
+    </script>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <script>
+        console.log(document.getElementById('demo'));   //<div id="demo"></div>
+        document.getElementById('demo').textContent = 'body에서 변경';
+    </script>
+</body>
+
+</html>
