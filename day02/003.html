@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 변수 생성을 막아주는 문법
+        'use strict'
+        {
+            // 스코프 개념이 없다. 무조건 사용가능
+            a = 10;
+            // 함수가 스코프
+            var b = 20;
+            // const, let은 자바와 마찬가지로 {}가 스코프
+            const c = 30;
+        }
+
+        function aaa() {
+            // 스코프가 뭔가요 ?
+            x = 10;
+            // 함수가 스코프, 함수 밖에서는 사용 x
+            var y = 20;
+            // z는 함수 소속(함수스코프는 아니지만 함수도 {}가 있잖아)
+            const z = 30;
+        }
+    </script>
+</body>
+
+</html>

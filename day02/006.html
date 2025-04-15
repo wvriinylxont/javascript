@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="clickHandler()">클릭</button>
+    <span id="target">1</span>
+    <script>
+        // 버튼을 추가하고 버튼을 클릭하면 값이 1씩 증가
+        function clickHandler() {
+            let value = document.getElementById('target').textContent;
+            // 버튼을 추가하고 버튼을 클릭하면 값이 2가 된다
+            // 버튼을 한번 더 클릭하면 값이 3이 된다
+            document.getElementById('target').textContent = ++value;
+        }
+    </script>
+</body>
+
+</html>

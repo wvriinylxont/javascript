@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="plus()">증가</button>
+    <button onclick="down()">감소</button>
+    <span id="target">1</span>
+    <script>
+        const target = document.getElementById('target');
+        // 증가버튼, 감소버튼을 가진 카운터를 만드시오
+        function plus() {
+            let count = target.textContent;
+            target.textContent = ++count;
+        }
+        function down() {
+            let count = target.textContent;
+            target.textContent = --count;
+        }
+    </script>
+</body>
+
+</html>
