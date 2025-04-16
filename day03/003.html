@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 객체와 엔터 처리</title>
+    <style>
+        #canvas {
+            width: 500px;
+            height: 500px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    이벤트가 발생하면 개발자가 작성한 함수를 자바스크립트가 실행해준다
+    이와 같이 개발자가 함수를 위탁 실행하는 -> callback
+
+    이벤트 : 프로그램에서 발생하는 특정사건
+            윈도우같은 그래픽유저 인터페이스에서는 사용자가 어떤 동작을 하면 개발자가 대처하는 방식으로 개발한다
+            이런 방식은 이벤트 구동 방식(event driven)
+
+            개발자는 이벤트 처리 함수를 만든 다음 윈도우, 웹브라우저에 실행할 위탁(콜백 함수)
+            윈도우, 웹브라우저등은 콜백 함수를 호출 할 때 현재 시스템 상황을 이벤트 객체로 만들어서 전달
+
+    마우스가 이동하면 #position에 "x좌표:75, y좌표:120"과 같은 형식으로 출력
+    -->
+    <div>
+        <div id="canvas" onmousemove="마우스좌표(event)">
+        </div>
+        <div id="position"></div>
+    </div>
+    <script>
+        const position = document.getElementById('position');
+        function 마우스좌표(event) {
+            const message = `<span style='border:1px solid blue'>x좌표:${event.pageX},y좌표:${event.pageY}</span>`;
+            position.innerHTML = message;
+        }
+    </script>
+</body>
+
+</html>

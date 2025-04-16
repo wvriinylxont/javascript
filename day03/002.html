@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 감소 증가</title>
+</head>
+
+<body>
+    <div id="count"></div>
+    <button onclick="plus()">+</button>
+    <button onclick="down()">-</button>
+    <script>
+        let count = 0;
+        const countElement = document.getElementById('count');
+        countElement.innerHTML = `<span style="color:blue">${count}</span>`;
+        function plus() {
+            ++count;
+            let html = `<span style="color:blue">${count}</span>`;
+            if (count < 0)
+                html = `<span style="color:blue">${count}</span>`;
+            countElement.innerHTML = html;
+        }
+        function down() {
+            --count;
+            countElement.textContent = count;
+            // const color = count>0? "blue" : "red";
+            const html = `<span style="color:${count > 0 ? 'blue' : 'red'}">${count}</span>`;
+            countElement.innerHTML = html;
+        }
+    </script>
+</body>
+
+</html>

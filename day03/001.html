@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열과 삼항연산자</title>
+</head>
+
+<body>
+    <div id="t1"></div>
+    <div id="t2"></div>
+    <div id="t3"></div>
+    <script>
+        const price = 1000;
+        const s1 = price + '원';
+        const s2 = price + "원";
+        const s3 = `${price}원`; // 템플릿 문자열
+
+        document.getElementById('t1').textContent = s1;
+        document.getElementById('t2').textContent = s2;
+        document.getElementById('t3').textContent = s3;
+    </script>
+</body>
+
+</html>
