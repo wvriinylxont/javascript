@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent {
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            margin: 0 auto;
+            /* 큰 틀에서 포지션을 잡는건 relative */
+            position: relative;
+        }
+
+        #child {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: bisque;
+            left: 50px;
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+</body>
+
+</html>

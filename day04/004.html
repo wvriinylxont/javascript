@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열을 html에 출력하자</title>
+</head>
+
+<body>
+    <ul id="target">
+    </ul>
+    <script>
+        const ar = [75, 80, 65, 90, 55];
+        // html에 있는 요소를 선택
+        const ul = document.getElementById('target');
+        for (const a of ar) {
+            // 메모리에 li 요소를 하나 생성
+            const li = document.createElement('li');
+            li.textContent = a;
+            ul.appendChild(li);
+        }
+    </script>
+</body>
+
+</html>

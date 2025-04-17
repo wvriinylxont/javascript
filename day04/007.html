@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- 
+    점수를 입력하면 점수를 출력
+    #result에 점수의 합계
+-->
+
+<body>
+    점수 : <input type="number" id="jumsu" onkeydown="입력(event)" placeholder="점수 입력">
+    <div id="result"></div>
+    <ul id="target"></ul>
+    <script>
+        const ar = [];
+        const jumsuElement = document.getElementById('jumsu');
+        const ulElement = document.getElementById('target');
+        const resultElement = document.getElementById('result');
+
+        function 입력(event) {
+            if (event.key == 'Enter') {
+                ar.push(Number(jumsuElement.value));
+                jumsuElement.value = '';
+                출력();
+            }
+        }
+
+        function 출력() {
+            ulElement.innerHTML = '';
+            let sum = 0;
+            for (const jumsu of ar) {
+                const li = document.createElement('li');
+                li.textContent = jumsu;
+                ulElement.appendChild(li);
+                sum += jumsu;
+            }
+            resultElement.textContent = `합계 : ${sum}`;
+        }
+    </script>
+</body>
+
+</html>

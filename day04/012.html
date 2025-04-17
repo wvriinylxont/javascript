@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent {
+            border: 2px solid orangered;
+            position: relative;
+        }
+
+        #child {
+            background-color: orange;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    부모 : 500*500
+    자식 : 50*50
+    Math.random() : 0~1사이의 랜덤한 실수
+    Math.floor() : 소수점이하를 버린다
+    -->
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+    <script>
+        const parentElement = document.getElementById('parent');
+        const childElement = document.getElementById('child');
+        const PARENT_WIDTH = 500;
+        const PARENT_HEIGHT = 500;
+        const CHILD_WIDTH = 50;
+        const CHILD_HEIGHT = 50;
+        let maxLeft = 0;
+        let maxHeight = 0;
+
+        function 랜덤위치지정() {
+            const left = Math.floor(Math.random() * maxLeft);
+            const top = Math.floor(Math.random() * maxTop);
+            childElement.style.left = left + 'px';
+            childElement.style.top = top + 'px';
+        }
+
+        function init() {
+            parentElement.style.width = PARENT_WIDTH + 'px';
+            parentElement.style.height = PARENT_HEIGHT + 'px';
+            childElement.style.width = CHILD_WIDTH + 'px';
+            childElement.style.height = CHILD_HEIGHT + 'px';
+            maxLeft = PARENT_WIDTH - CHILD_WIDTH;
+            maxTop = PARENT_HEIGHT - CHILD_HEIGHT;
+        }
+        // 이벤트를 지정하는 방법 1 : 요소에서 on이벤트이름 속성으로 지정
+        // 이벤트를 지정하는 방법 2 : 요소.addEventListener('이벤트이름', 함수이름)
+        childElement.addEventListener('click', 랜덤위치지정);
+
+        init();
+        랜덤위치지정();
+
+        // const child = document.getElementById('child');
+        // const maxX = 500 - 50;
+        // const maxY = 500 - 50;
+
+        // const randomX = Math.random() * maxX;
+        // const randomY = Math.random() * maxY;
+
+        // child.style.left = randomX + 'px';
+        // child.style.top = randomY + 'px';
+    </script>
+</body>
+
+</html>

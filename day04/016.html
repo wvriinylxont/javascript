@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 숫자를 입력하면 출력(숫자와 버튼이 있다). 버튼은 클릭하면 숫자 삭제 -->
+    <ul id="target"></ul>
+    <script>
+        const numbers = [10, 20, 30];
+        const ulElement = document.getElementById('target');
+        function remove(위치) {
+            numbers.splice(위치, 1);
+            printNumbers();
+        }
+        function printNumbers() {
+            let html = '';
+            for (let i = 0; i < numbers.length; i++) {
+                html += `
+                <li>
+                    <span>${numbers[i]}</span>
+                    <button onclick='remove(${i})'>삭제</button>
+                </li>
+                `;
+            }
+            ulElement.innerHTML = html;
+        }
+        printNumbers();
+    </script>
+</body>
+
+</html>

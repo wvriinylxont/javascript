@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        웹표준 : html5 + css3 + 자바스크립트 
+        css 작성하는 방법
+        - 외부 css : <link>로 가져온다
+        - 내부 css : <style>
+        - inline css : <태그 style=''>
+
+        position 속성의 값들
+        - static : 모든 요소는 원래 static
+        - relative : 자신의 원래 위치 기준으로 이동, 원래 공간은 유지
+        - absolute : 부모 기준으로 이동, 원래 공간은 채워진다
+                     absolute의 부모가 되려면 relative 또는 absolute
+        - 보통은 부모의 relative 자식은 absolute
+                   
+        */
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        #red {
+            background-color: red;
+        }
+
+        #orange {
+            background-color: orange;
+            position: absolute;
+            left: 150px;
+            top: 100px;
+        }
+
+        #yellow {
+            background-color: yellow;
+        }
+
+        #green {
+            background-color: green;
+            position: relative;
+            left: 150px;
+            top: 100px;
+        }
+
+        #blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="red"></div>
+    <div id="orange">절대</div>
+    <div id="yellow"></div>
+    <div id="green">상대</div>
+    <div id="blue"></div>
+</body>
+
+</html>

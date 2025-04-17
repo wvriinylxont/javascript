@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="kor" placeholder="국어 성적" min="0" max="100">
+    <input type="number" id="eng" placeholder="영어 성적" min="0" max="100">
+    <button id="calc">계산</button>
+    <script>
+        // 국어, 영어 성적을 input으로 입력받아 console.log출력하시오
+        // addEventListener을 사용
+        const korElement = document.getElementById('kor');
+        const engElement = document.getElementById('eng');
+        const calcButton = document.getElementById('calc');
+        // 버튼 클릭하면 출력
+        calcButton.addEventListener('click', function () {
+            const kor = korElement.value;
+            const eng = engElement.value;
+            console.log(kor, ' ', eng);
+        });
+        // 영어에서 엔터
+        engElement.addEventListener('keydown', function (event) {
+            if (event.key == 'Enter')
+                console.log("엔터입력");
+        });
+        // 국어에서 blur
+        korElement.addEventListener('blur', function () {
+            console.log('blur');
+        })
+
+
+    </script>
+</body>
+
+</html>

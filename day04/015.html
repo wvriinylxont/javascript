@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>실시간 성적 계산</h2>
+    <div>
+        국어 점수 : <input type="number" id="kor" placeholder="0~100" min="0" max="100"><br>
+        영어 점수 : <input type="number" id="eng" placeholder="0~100" min="0" max="100"><br>
+        수학 점수 : <input type="number" id="math" placeholder="0~100" min="0" max="100"><br>
+        <div id="result"></div>
+    </div>
+    <script>
+        const korElement = document.getElementById('kor')
+        const engElement = document.getElementById('eng')
+        const mathElement = document.getElementById('math')
+        const resultElement = document.getElementById('result')
+
+        function 계산해서출력() {
+            const kor = Number(korElement.value);
+            const eng = Number(engElement.value);
+            const math = Number(mathElement.value);
+            const sum = kor + eng + math;
+            const avg = sum / 3;
+            resultElement.innerHTML = `총합:${sum}점, 평균:${avg.toFixed(1)}점`;
+        }
+
+        korElement.addEventListener('blur', 계산해서출력);
+        engElement.addEventListener('blur', 계산해서출력);
+        mathElement.addEventListener('blur', 계산해서출력);
+    </script>
+</body>
+
+</html>

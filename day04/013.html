@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>익명 함수</title>
+</head>
+
+<body>
+    <script>
+        // 자바스크립트에서는 함수도 변수에 저장할 수 있다
+        // 자바스크립트에서는 변수가 올 수 있는 모든 곳에 함수도 올 수 있다
+        // (자바스크립트에서 함수는 일급 객체(first-class citizen)다)
+
+        // 개발자가 기능을 개발하면 그 기능을 일정한 간격으로 실행해준다
+        // 함수를 일정한 간격으로 실행해 주는 함수
+        // function aaa() {
+        //     console.log("ㅎㅇ")
+        // }
+        setInterval(function () {
+            console.log("ㅎㅇ");
+
+        }, 1000);  //<- 1초
+    </script>
+</body>
+
+</html>

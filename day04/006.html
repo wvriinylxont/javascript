@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 숫자를 입력하면 #target에 출력하시오 -->
+    <!-- 
+    1. 숫자를 입력하고 엔터를 누르면 console.log로 찍어보자
+    2. 입력한 값을 배열에 저장하자 
+    3. 출력하자
+    -->
+    <input type="number" id="num" onkeydown="입력(event)" placeholder="숫자 입력">
+    <ul id="target">
+
+    </ul>
+    <script>
+        const ar = [];
+        const numElement = document.getElementById('num');
+        const ulElement = document.getElementById('target');
+        function 입력(event) {
+            if (event.key == 'Enter') {
+                // 배열의 마지막에 추가
+                ar.push(Number(numElement.value));
+                numElement.value = '';
+                출력();
+            }
+        }
+
+        function 출력() {
+            ulElement.innerHTML = '';
+            for (const num of ar) {
+                const li = document.createElement('li');
+                li.textContent = num;
+                ulElement.appendChild(li);
+            }
+        }
+    </script>
+</body>
+
+</html>
