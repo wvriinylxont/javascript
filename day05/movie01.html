@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>AJAX</title>
+</head>
+
+<body>
+    <ul id="target">
+
+    </ul>
+    <script>
+        // AJAX : Asynchronus Javascript And Xml (사실 Xml이랑 별 상관은 없다.. 그냥 이름일뿐)
+        // https://jsonplaceholder.typicode.com/posts/1/comments
+
+        // 비동기 함수는 병렬 실행 -> 비동기 함수를 병렬로 실행해놓고, 원래 js는 멈추지 않고 계속 실행된다
+        // axios.get()의 실행결과를 기다리지 않고 js는 for문을 돌린다
+        // 서버에서 데이터를 수신한 다음 화면을 만들어야지 ..
+
+        // js를 사용한 화면은 : ajax로 데이터를 수신한 다음 js로 화면을 생성
+        // 즉 axios.get()이 끝난 다음(await)에 for문이 돌아가야 한다
+
+        // await는 반드시 함수 내부에서 사용 + await를 담은 함수는 반드시 async여야 한다
+
+        // 자바스크립트는 Promise라는 약속 객체를 만들어서 비동기 함수의 결과로 사용
+        // Promise는 작업이 끝나면 결과가 들어올 것이라는 약속 
+        /// await랑 async는 짝꿍
+        const ul = document.getElementById('target');
+        async function fetch() {
+            // await를 사용하면 await까지 실행이 멈춘다
+            const result = await axios.get("https://jsonplaceholder.typicode.com/posts/1/comments");
+            let = html = '';
+            for (const ob of result.data) {
+                html += `<li>${ob.name} : ${ob.email}</li>`
+            }
+            ul.innerHTML = html;
+        }
+        fetch();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" placeholder="숫자 입력" onkeydown="inputNumber(event)" id="num">
+    <ul id="target">
+
+    </ul>
+    <script>
+        const ulElement = document.getElementById('target')
+        const inputElement = document.getElementById('num');
+        const numbers = [75, 80, 85];
+
+        function inputNumber(event) {
+            if (event.key == 'Enter') {
+                const num = Number(inputElement.value);
+                numbers.push(num);
+                inputElement.value = "";
+                printNumbers();
+            }
+        }
+
+        function remove(위치) {
+            numbers.splice(위치, 1);
+            printNumbers();
+        }
+
+        function printNumbers() {
+            let html = '';
+            let index = 0;
+            for (const number of numbers) {
+                html += `
+                <li>${number}
+                <button onclick="remove(${index++})">삭제</button>
+                </li>
+                `
+            }
+            ulElement.innerHTML = html;
+        }
+        printNumbers();
+    </script>
+</body>
+
+</html>
