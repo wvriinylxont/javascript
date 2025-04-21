@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>json placeholder 출력</title>
+</head>
+
+<body>
+    <script>
+        // Model View Controller : 데이터, 타임리프 뷰 화면, 컨트롤러
+
+        // 스프링의 ModelAndView에서
+        //     return new ModelAndView("aaa").addObject(데이터)  -> forward -> get 방식(화면을 보여준다)
+        //     return new ModelAndView("redirect/aaa") -> redirect -> 처리 후 이동
+
+        // REST : 백엔드에서 뷰를 제거, 프론트엔드가 뷰를 담당. 백과 프론트는 일반적으로 JSON으로 연결
+        //        화면은 프론트가 담당, 백은 처리만 담당
+
+        // REST 방식은 요청 파라미터를 주소 형식으로 넘기는 것을 선호
+        //https://jsonplaceholder.typicode.com/posts?pno=100
+        //https://jsonplaceholder.typicode.com/posts/100
+
+        // REST 방식은 복수형과 주소 형식 파라미터를 선호
+        // /board?bno=11  vs  /boards/11
+        // axios.get('https://jsonplaceholder.typicode.com/posts/1')
+
+        // axios는 AJAX 라이브러리
+        // AJAX가 나오기 전까지 html은 동기적으로 수행
+
+        // 동기 코드의 예
+        // 1+2 계산 -> sum에 대입 -> sum을 출력(게발자를 실행순서를 신경 쓸 필요가 없다)
+        const sum = 1 + 2;
+        console.log(sum);
+
+        // AJAX는 대표적인 비동기 작업
+        // 40라인을 병렬로 실행하고, 자바스크립트는 41라인을 실행한다
+        const response = axios.get('https://jsonplaceholder.typicode.com/posts/1');
+        console.log(response);
+
+        // 40라인이 완료될 때까지 코드 실행을 멈추자(비동기를 동기화하자) : await
+        // await를 사용하는 코드는 반드시 함수 내부에 위치 -> 함수는 async를 붙인다
+        async function fetch() {
+            const x = await axios.get('https://jsonplaceholder.typicode.com/posts/1');
+            // 브라우저가 JSON.parse()를 자동 수행
+            console.log(x.data);
+        }
+        fetch();
+    </script>
+</body>
+
+</html>
