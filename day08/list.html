@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+    <script>
+        const Url = 'http://192.168.0.19:8080/contacts';
+
+        const fetch = async () => {
+            try {
+                const response = await axios.get(Url);
+                return response.data;
+            } catch (err) {
+                console.log(err)
+            }
+        }
+
+        const printContacts = (contacts) => {
+            const tbodyElement = document.getElementById('tbody');
+            let html = '';
+            for (contact of contacts) {
+                html += `
+                <tr>
+                    <td>${contact.cno}</td>
+                    <td>
+                        <a href="/day08/read.html?cno=${contact.cno}">${contact.name}</a>
+                    </td>
+                    <td>${contact.address}</td>
+                    <td>${contact.tel}</td>
+                </tr>
+                `;
+            }
+            tbodyElement.innerHTML = html;
+        }
+
+        window.onload = async function () {
+            const contacts = await fetch();
+            printContacts(contacts);
+        }
+    </script>
+</head>
+
+<body>
+    <table class="table table-border">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>주소</th>
+                <th>전화번호</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-primary" href="/day08/add.html">할일 작성으로</a>
+</body>
+
+</html>
