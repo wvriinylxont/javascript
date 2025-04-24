@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>연락처 작성</title>
+</head>
+
+<body>
+    <script>
+        // 연락처 : no(서버에서 부여), name, address, tel, photo
+        // 요청 데이터 인코딩 방법 3가지
+        // urlencoded : name=홍길동&address=울산국
+        // json : {name:'홍길동', address:'울산국'}
+        // form-data : 파일 업로드
+
+        // urlencoded와 json은 전달할 수 있는 데이터 종류(문자열)은 같고, 인코딩 형식이 다르다
+
+        // 작성
+        // - post / contacts로 name, address, tel을 작성한다
+        // - photo는 기본 이미지로
+
+        // 사진 변경
+        // - post / contacts / 연락처번호 / photo
+        const params = {
+            name: '홍길동',
+            tel: '1234',
+            address: '울산국'
+        };
+        axios.post('작성 주소', params).then((response) => {
+            // 작성이 성공한 경우 api서버가 연락처 번호를 리턴
+            const no = response.data.no;
+            // 업로드한 이미지가 있다고 치자 -> FormData를 생성하자
+            const photo = '';
+            const formData = new FormData();
+            formData.append('photo', photo);
+
+            // 연락처 번호를 가지고 사진을 변경
+            axios.post('이미지 변경 주소', formData).then(() => {
+                alert("작성 성공");
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="photo">
+    <script>
+        // no꺼내기
+        const searchParams = new URLSearchParams(location.search);
+        const no = searchParams.get('no');
+        if (no == null)
+            location.href = '/day09/list.html';
+
+        function printContact(contact) {
+            // name, address, tel, photo
+            // contact.photo가 단순히 이미지 이름이 아니라 주소
+            console.log(contact);
+            const photoElement = document.getElementById('photo');
+            photoElement.src = contact.photo;
+        }
+
+        async function fetch() {
+            try {
+                const response = await axios.get(`http://sample.bmaster.kro.kr/contacts/${no}`);
+                if (response.data.status == 'fail') {
+                    alert("잘못된 접근입니다");
+                    location.href = '/day09/list.html';
+                }
+                printContact(response.data);
+            } catch (err) {
+                // 서버연결이 불안정 -> 연결이 안되는 경우
+                console.log(err);
+            }
+        }
+
+        fetch();
+    </script>
+</body>
+
+</html>

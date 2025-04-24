@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>사진 넣고 출력</title>
+</head>
+
+<body>
+    <img id="photo-preview" style="min-height: 120px; height: 120px;">
+    <hr>
+    <!-- multiple은 사진을 여러장 선택 가능하게 만듬  -->
+    <!-- file 요소에서 선택한 이미지는 files라는 배열에 담기는데 files[0] -->
+    사진 : <input type="file" id="photo" accept=".png, .jpg, jpeg" onchange="preview(event)"><br>
+    이름 : <input type="text" id="name"><br>
+    주소 : <input type="text" id="address"><br>
+    연락처 : <input type="text" id="tel"><br>
+    <button onclick="add()">회원 가입</button>
+    <script>
+        const photoElement = document.getElementById('photo');
+        const nameElement = document.getElementById('name');
+        const addressElement = document.getElementById('address');
+        const telElement = document.getElementById('tel');
+
+        async function add() {
+            // 검증(validation)
+            if (nameElement.value == '') {
+                alert('이름을 입력하세요');
+                nameElement.focus();
+                return;
+            } else if (addressElement.value == '') {
+                alert('주소를 입력하세요');
+                addressElement.focus();
+                return;
+            } else if (telElement.value == '') {
+                alert('연락처를 입력하세요');
+                telElement.focus();
+                return;
+            }
+
+            const params = {
+                name: nameElement.value,
+                address: addressElement.value,
+                tel: telElement.value
+            };
+
+            try {
+                const response = await axios.post('https://sample.bmaster.kro.kr/contacts', params);
+                const no = response.data.no;
+
+                // 사진을 선택했다면 files[0]에 있다 -> 확인 후 선택하지 않았다면 읽기 페이지로
+                const photo = photoElement.files[0];
+                if (photo == undefined)
+                    location.href = `day09/read.html?no=${no}`;
+
+                const formData = new FormData();
+                formData.append('photo', photo);
+                await axios.post('https://sample.bmaster.kro.kr/contacts/' + no + '/photo', formData);
+                location.href = `/day09/read.html?no=${no}`;
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        function preview(event) {
+            // 이벤트가 발생한 곳
+            // 선택한 파일 정보(대충 파일이름이라고 생각하자)
+            const file = event.target.files[0];
+
+            // 미리보기해보자 -> 미리보기할려면 파일을 읽어야지
+            const previewElement = document.getElementById('photo-preview');
+            if (file) {
+                // 사진을 선택했다면 사진을 읽어오자
+                // 1. 파일을 읽어오는 내장 객체를 생성
+                const reader = new FileReader();
+                // 2. reader가 파일을 읽어오고 나면 실행할 이벤트 처리 함수
+                //    즉  비동기 함수 reader.readAsDataURL(file)가 완료된 다음에 실행될 코드
+                //    2번, 3번의 순서를 바꾸면 안됨
+                reader.onload = function (e) {
+                    previewElement.src = e.target.result;
+                }
+                // 3.파일을 읽어오자
+                reader.readAsDataURL(file);
+            } else {
+                // 사진을 취소했다면
+                previewElement.removeAttribute('src');
+            }
+        }
+    </script>
+</body>
+
+</html>
